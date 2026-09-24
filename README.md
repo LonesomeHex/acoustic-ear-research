@@ -1,43 +1,38 @@
 # Acoustic Ear Research
 
-Public-facing research page for **Acoustic Ear**, an independent undergraduate project investigating microphone-based automatic music transcription for acoustic instruments.
+Public-facing research page for **Acoustic Ear**, an independent undergraduate project investigating microphone-based automatic music transcription for real acoustic instruments.
 
 ## Purpose
 
-This repository is intentionally separate from the private development repository. It contains only public-facing project information and should never contain:
+This repository is intentionally separate from the private development repository. It contains public-facing project information only and should never contain raw research recordings, restricted datasets, private credentials, or unverified performance claims.
 
-- private or raw research recordings
-- restricted datasets
-- model checkpoints
-- credentials or tokens
-- unpublished personal information
-- claims about model performance that have not been measured
+## Visual sources
 
-## Site
+The public site does **not** use AI-generated photography.
 
-The site is a dependency-free static page built with HTML and CSS so it can be hosted directly with GitHub Pages.
+Archival music photographs are used only as historical and cultural context. Each image is linked to its source/rights information on the page.
 
-### Publishing with GitHub Pages
+Current archival sources include:
 
-After merging the site branch:
+- **Library of Congress — Lomax Collection**: selected folk-music photographs whose catalog records state **No known restrictions**.
+- **Library of Congress — William P. Gottlieb Collection**: jazz photography that the Library states entered the **public domain in 2010**, with its normal note that privacy/publicity rights may still apply.
 
-1. Open **Settings** in this repository.
-2. Choose **Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Select **main** and **/(root)**.
-5. Save.
-
-GitHub will provide the public URL after deployment.
+The archival photographs are **not** presented as training data, benchmark material, or photographs of the project's research setup.
 
 ## Research status
 
 **Early-stage / Phase 0.** Current work is focused on establishing a trustworthy real-microphone baseline before any model-improvement claims are made.
 
 The public site intentionally distinguishes:
+
 - measured results from hypotheses
 - research-only data from potentially reusable data
 - model inference from model training
 - implementation progress from scientific evidence
+
+## Publishing
+
+The site is dependency-free HTML/CSS and is hosted with GitHub Pages from the repository's main branch.
 
 ---
 

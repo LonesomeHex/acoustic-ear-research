@@ -1,272 +1,181 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0d0f0e">
-  <meta name="description" content="Acoustic Ear is independent undergraduate research into robust microphone-based automatic music transcription for real acoustic instruments.">
-  <meta property="og:title" content="Acoustic Ear — Microphone-Based Music Transcription Research">
-  <meta property="og:description" content="Can a computer understand an unamplified acoustic instrument through an ordinary microphone?">
-  <meta property="og:type" content="website">
-  <title>Acoustic Ear — Microphone-Based Music Transcription Research</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f0d0b">
+<meta name="description" content="Acoustic Ear is independent undergraduate research into microphone-based automatic music transcription for real acoustic instruments.">
+<title>Acoustic Ear — Music Transcription Research</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<a class="identity" href="#top" aria-label="Acoustic Ear home">
+<span class="wave-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+<span><strong>Acoustic Ear</strong><small>music transcription research</small></span>
+</a>
+<nav aria-label="Primary navigation">
+<a href="#why">Why</a><a href="#setup">Setup</a><a href="#method">Method</a><a href="#status">Status</a><a href="#archive">Archive</a>
+<a class="github" href="https://github.com/LonesomeHex" target="_blank" rel="noreferrer">GitHub ↗</a>
+</nav>
+</header>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Acoustic Ear home">
-      <span class="brand-mark" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i>
-      </span>
-      <span>Acoustic Ear</span>
-      <small>Research</small>
-    </a>
+<main id="main">
+<section class="hero" id="top">
+<div class="hero-copy">
+<p class="eyebrow">REAL MUSIC · REAL RECORDINGS · MEASURABLE RESULTS</p>
+<h1>Teach the machine to <em>listen.</em></h1>
+<p class="lede">Acoustic Ear explores whether a computer can understand an unamplified musical performance from an ordinary microphone — beginning with acoustic guitar, but motivated by something larger than the instrument itself.</p>
+<div class="hero-actions"><a class="btn primary" href="#why">Why this matters ↓</a><a class="btn secondary" href="#status">See current work</a></div>
+<div class="hero-facts" aria-label="Research principles">
+<span>01 / microphone first</span><span>02 / frozen baselines</span><span>03 / held-out tests</span><span>04 / no invented results</span>
+</div>
+</div>
 
-    <nav aria-label="Primary navigation">
-      <a href="#question">Question</a>
-      <a href="#method">Method</a>
-      <a href="#status">Status</a>
-      <a href="#principles">Principles</a>
-      <a class="nav-cta" href="https://github.com/LonesomeHex" target="_blank" rel="noreferrer">GitHub ↗</a>
-    </nav>
-  </header>
+<div class="heritage-panel" aria-label="Archival music photographs">
+<figure class="heritage-main">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Virginia-stringband-1937.jpg" alt="The Bog Trotters string band in Galax, Virginia, 1937" loading="eager">
+<figcaption><span>Galax, Virginia · 1937</span><strong>Music was social before it was data.</strong></figcaption>
+</figure>
+<figure class="heritage-small">
+<img src="https://tile.loc.gov/image-services/iiif/service%3Amusic%3Amusgottlieb%3Amusgottlieb-07501%3Aver01%3A0001/full/pct%3A50.0/0/default.jpg" alt="Jazz musicians in a mid-century photograph from the William P. Gottlieb Collection" loading="eager">
+<figcaption>William P. Gottlieb Collection · Library of Congress</figcaption>
+</figure>
+<div class="heritage-stamp"><small>THE HUMAN REFERENCE</small><b>rhythm · touch · timing · expression</b></div>
+</div>
+</section>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-noise" aria-hidden="true"></div>
-      <div class="hero-copy">
-        <p class="eyebrow"><span></span> Independent undergraduate research</p>
-        <h1>Can a computer <em>really hear</em> an acoustic instrument?</h1>
-        <p class="lede">
-          Acoustic Ear investigates microphone-first automatic music transcription:
-          understanding real musical performance directly from ordinary recorded audio,
-          without requiring a pickup, MIDI instrument, or proprietary input device.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#question">Explore the research</a>
-          <a class="button ghost" href="#status">Current status</a>
-        </div>
-      </div>
+<section class="spec-wrap" id="setup">
+<div class="section-label"><span>REFERENCE SETUP</span><small>The controlled chain used for the first real-world baseline</small></div>
+<div class="spec-grid">
+<article>
+<div class="spec-top"><span>01</span><i class="icon" aria-hidden="true">⌁</i></div>
+<small>Reference instrument</small><h2>Martin D-18</h2><p>2026 · 1935 Sunburst · satin finish</p>
+<dl><div><dt>Type</dt><dd>Steel-string dreadnought</dd></div><div><dt>Input</dt><dd>Unamplified</dd></div></dl>
+</article>
+<article>
+<div class="spec-top"><span>02</span><i class="icon" aria-hidden="true">◉</i></div>
+<small>Microphone</small><h2>Samson Meteor</h2><p>Consumer USB microphone</p>
+<dl><div><dt>Capture</dt><dd>Raw room audio</dd></div><div><dt>Baseline file</dt><dd>44.1 kHz · 16-bit PCM</dd></div></dl>
+</article>
+<article>
+<div class="spec-top"><span>03</span><i class="icon" aria-hidden="true">≋</i></div>
+<small>Baseline model</small><h2>Basic Pitch</h2><p>Frozen pretrained comparison</p>
+<dl><div><dt>Purpose</dt><dd>Reference transcription</dd></div><div><dt>Status</dt><dd>Runtime investigation</dd></div></dl>
+</article>
+<article>
+<div class="spec-top"><span>04</span><i class="icon" aria-hidden="true">▦</i></div>
+<small>Local compute</small><h2>RTX 4070 Ti</h2><p>12 GB GPU + Ryzen 7 5800X3D</p>
+<dl><div><dt>Training</dt><dd>Local CUDA planned</dd></div><div><dt>Priority</dt><dd>Reproducible runs</dd></div></dl>
+</article>
+</div>
+</section>
 
-      <div class="hero-visual" aria-label="Stylized audio signal visualization">
-        <div class="scope-label"><span>LIVE QUESTION</span><span>MIC → MODEL → MEASURE</span></div>
-        <div class="waveform" aria-hidden="true">
-          <i style="--h:18%"></i><i style="--h:28%"></i><i style="--h:46%"></i><i style="--h:73%"></i>
-          <i style="--h:92%"></i><i style="--h:68%"></i><i style="--h:42%"></i><i style="--h:62%"></i>
-          <i style="--h:86%"></i><i style="--h:100%"></i><i style="--h:76%"></i><i style="--h:49%"></i>
-          <i style="--h:31%"></i><i style="--h:58%"></i><i style="--h:81%"></i><i style="--h:67%"></i>
-          <i style="--h:39%"></i><i style="--h:22%"></i><i style="--h:44%"></i><i style="--h:72%"></i>
-          <i style="--h:95%"></i><i style="--h:83%"></i><i style="--h:61%"></i><i style="--h:35%"></i>
-          <i style="--h:26%"></i><i style="--h:48%"></i><i style="--h:79%"></i><i style="--h:90%"></i>
-          <i style="--h:66%"></i><i style="--h:38%"></i><i style="--h:19%"></i><i style="--h:33%"></i>
-          <i style="--h:57%"></i><i style="--h:88%"></i><i style="--h:74%"></i><i style="--h:52%"></i>
-          <i style="--h:29%"></i><i style="--h:17%"></i><i style="--h:41%"></i><i style="--h:69%"></i>
-          <i style="--h:97%"></i><i style="--h:82%"></i><i style="--h:55%"></i><i style="--h:34%"></i>
-          <i style="--h:24%"></i><i style="--h:47%"></i><i style="--h:77%"></i><i style="--h:91%"></i>
-          <i style="--h:71%"></i><i style="--h:45%"></i><i style="--h:27%"></i><i style="--h:36%"></i>
-        </div>
-        <div class="scope-footer"><span>REAL AUDIO</span><span>KNOWN GROUND TRUTH</span><span>REPRODUCIBLE TESTS</span></div>
-      </div>
-    </section>
+<section class="section why" id="why">
+<div class="section-title"><p class="eyebrow">01 / WHY THIS EXISTS</p><h2>A note is more than a frequency.</h2></div>
+<div class="why-copy">
+<p class="big">Musicians hear attack, sustain, timing, resonance, mistakes, feel, and the way one sound leans into the next. A transcription system has to begin with notes — but the reason to build it is the music around those notes.</p>
+<div class="copy-columns">
+<p>Modern learning tools become much more interesting when the instrument does not need a pickup, a MIDI output, or special proprietary hardware. The research question is whether ordinary recorded sound can become a reliable enough interface for meaningful musical feedback.</p>
+<p>Acoustic guitar is the first controlled test case because it exposes exactly the problems that make real music difficult: overlapping harmonics, ringing strings, chords, pick attack, room reflections, tempo, dynamics, and human timing.</p>
+</div>
+</div>
+</section>
 
-    <section class="section split" id="question">
-      <div class="section-heading">
-        <p class="section-number">01 / Research question</p>
-        <h2>Music is messy.<br><span>That is the point.</span></h2>
-      </div>
-      <div class="prose">
-        <p>
-          Automatic music transcription asks a deceptively simple question:
-          <strong>what notes are being played, and when?</strong>
-        </p>
-        <p>
-          Real acoustic performance complicates the answer. Strings keep ringing.
-          Harmonics overlap. Rooms add reflections. Microphones color the signal.
-          Fast passages, articulation, chords, and background noise create ambiguity
-          that clean electrical or symbolic inputs avoid.
-        </p>
-        <p>
-          This project begins with acoustic guitar and asks whether useful musical
-          understanding can come directly from an <strong>ordinary microphone</strong>.
-          The long-term question is broader: can the same approach generalize across
-          acoustic instruments and voices?
-        </p>
-      </div>
-    </section>
+<section class="archive-band" aria-label="Historical music context">
+<figure>
+<img src="https://tile.loc.gov/storage-services/service/pnp/ppmsc/00600/00650v.jpg" alt="Pete Steele and family with instruments in Hamilton, Ohio, 1938" loading="lazy">
+<figcaption><span>1938 · Hamilton, Ohio</span><b>Different players. Shared music.</b><a href="https://www.loc.gov/item/2007660375/" target="_blank" rel="noreferrer">Library of Congress ↗</a></figcaption>
+</figure>
+<div class="archive-thesis">
+<span class="eyebrow">MUSIC AS A HUMAN RECORD</span>
+<p>The technology is new. The thing worth listening to is not.</p>
+<small>Archival photographs on this page are historical context only. They are not training data, benchmark material, or representations of the current lab setup.</small>
+</div>
+</section>
 
-    <section class="signal-path" aria-label="Current signal path">
-      <p class="mini-label">Current signal path</p>
-      <div class="path-grid">
-        <article>
-          <span>01</span>
-          <div class="icon guitar" aria-hidden="true">◌</div>
-          <h3>Acoustic instrument</h3>
-          <p>Unamplified performance</p>
-        </article>
-        <b aria-hidden="true">→</b>
-        <article>
-          <span>02</span>
-          <div class="icon" aria-hidden="true">◉</div>
-          <h3>Ordinary microphone</h3>
-          <p>Raw room audio</p>
-        </article>
-        <b aria-hidden="true">→</b>
-        <article>
-          <span>03</span>
-          <div class="icon" aria-hidden="true">⌁</div>
-          <h3>Transcription model</h3>
-          <p>Pitch + onset detection</p>
-        </article>
-        <b aria-hidden="true">→</b>
-        <article>
-          <span>04</span>
-          <div class="icon" aria-hidden="true">✓</div>
-          <h3>Objective evaluation</h3>
-          <p>Predictions vs. known truth</p>
-        </article>
-      </div>
-    </section>
+<section class="section method" id="method">
+<div class="section-title"><p class="eyebrow">02 / METHOD</p><h2>Start simple. Preserve the evidence.</h2></div>
+<div class="method-grid">
+<article><span>01</span><h3>Capture</h3><p>Record controlled real performances with the same instrument, microphone, format, and documented conditions.</p></article>
+<article><span>02</span><h3>Baseline</h3><p>Run an unchanged pretrained model first so later work has a fixed reference point.</p></article>
+<article><span>03</span><h3>Measure</h3><p>Compare predictions to known ground truth using pitch, onset, error, and runtime metrics.</p></article>
+<article><span>04</span><h3>Investigate</h3><p>Identify specific failure modes before changing data, architecture, thresholds, or training.</p></article>
+<article><span>05</span><h3>Adapt</h3><p>Use documented real data, appropriately licensed datasets, and synthetic data only after the baseline is preserved.</p></article>
+<article><span>06</span><h3>Hold out reality</h3><p>Judge improvements on unseen real recordings rather than on material used to train or tune them.</p></article>
+</div>
+</section>
 
-    <section class="section" id="method">
-      <div class="section-heading wide">
-        <p class="section-number">02 / Methodology</p>
-        <h2>A baseline before a breakthrough.</h2>
-        <p class="subhead">
-          Existing systems are measured first. Every added model, dataset, or
-          complication has to justify itself with evidence.
-        </p>
-      </div>
+<section class="signal-section">
+<div class="signal-card">
+<div class="signal-head"><span>INPUT / OUTPUT</span><small>conceptual signal path</small></div>
+<div class="signal-flow">
+<div><i>01</i><b>Performance</b><small>human musical event</small></div><em>→</em>
+<div><i>02</i><b>Microphone</b><small>acoustic pressure → audio</small></div><em>→</em>
+<div><i>03</i><b>Model</b><small>audio → note events</small></div><em>→</em>
+<div><i>04</i><b>Evaluation</b><small>prediction → evidence</small></div>
+</div>
+<div class="signal-line" aria-hidden="true">
+<i style="--h:14%"></i><i style="--h:24%"></i><i style="--h:42%"></i><i style="--h:72%"></i><i style="--h:48%"></i><i style="--h:86%"></i><i style="--h:34%"></i><i style="--h:66%"></i><i style="--h:95%"></i><i style="--h:58%"></i><i style="--h:29%"></i><i style="--h:51%"></i><i style="--h:79%"></i><i style="--h:39%"></i><i style="--h:68%"></i><i style="--h:91%"></i><i style="--h:46%"></i><i style="--h:25%"></i><i style="--h:57%"></i><i style="--h:82%"></i><i style="--h:38%"></i><i style="--h:64%"></i><i style="--h:31%"></i><i style="--h:18%"></i>
+</div>
+</div>
+</section>
 
-      <div class="method-grid">
-        <article><b>01</b><h3>Freeze the baseline</h3><p>Evaluate existing pretrained transcription systems before fine-tuning or architectural changes.</p></article>
-        <article><b>02</b><h3>Record the real world</h3><p>Capture controlled, unamplified performances through consumer microphone hardware.</p></article>
-        <article><b>03</b><h3>Build traceable data</h3><p>Use original recordings, documented public datasets, and procedurally generated labeled audio with explicit provenance.</p></article>
-        <article><b>04</b><h3>Adapt deliberately</h3><p>Target observed failure modes with transfer learning, augmentation, or architecture changes rather than guessing.</p></article>
-        <article><b>05</b><h3>Test what was unseen</h3><p>Judge changes on held-out real recordings, not on the material used to adapt the model.</p></article>
-        <article><b>06</b><h3>Raise the difficulty</h3><p>Progress from isolated notes toward resonance, chords, techniques, rapid passages, and additional instruments.</p></article>
-      </div>
-    </section>
+<section class="section status" id="status">
+<div class="section-title"><p class="eyebrow">03 / CURRENT STATUS</p><h2>No victory lap before the first clean measurement.</h2></div>
+<div class="status-layout">
+<div class="status-list">
+<div class="complete"><span></span><b>Phase 0 research scaffold</b><small>Complete</small></div>
+<div class="complete"><span></span><b>Dataset provenance & import foundation</b><small>Complete</small></div>
+<div class="complete"><span></span><b>First real D-18 / Meteor recording</b><small>Captured</small></div>
+<div class="active"><span></span><b>Baseline inference runtime</b><small>Investigating</small></div>
+<div class="queued"><span></span><b>GPU-backed comparison run</b><small>Awaiting validation</small></div>
+<div class="queued"><span></span><b>Model adaptation / training</b><small>Not started</small></div>
+</div>
+<div class="evidence-card">
+<span class="eyebrow">CURRENT RULE</span><h3>Incomplete runs are not results.</h3>
+<p>The first stock Basic Pitch attempt was stopped after an abnormally long CPU-only inference run. The recording was preserved unchanged and no transcription accuracy claim was made. The next step is to validate the execution backend and produce a scoreable report.</p>
+</div>
+</div>
+</section>
 
-    <section class="evidence-band">
-      <div>
-        <p class="section-number">What counts as evidence</p>
-        <h2>Measured, not imagined.</h2>
-        <p>No result is published simply because an output looks plausible.</p>
-      </div>
-      <div class="metrics">
-        <span>Pitch accuracy</span>
-        <span>Onset precision</span>
-        <span>Onset recall</span>
-        <span>F1 score</span>
-        <span>False positives</span>
-        <span>Missed notes</span>
-        <span>Timing error</span>
-        <span>Inference runtime</span>
-      </div>
-    </section>
+<section class="metrics-section">
+<div class="metrics-head"><p class="eyebrow">WHAT SUCCESS LOOKS LIKE</p><h2>Useful means measurable.</h2></div>
+<div class="metrics-grid"><span>Pitch accuracy</span><span>Onset precision</span><span>Onset recall</span><span>F1 score</span><span>False positives</span><span>Missed notes</span><span>Timing error</span><span>Inference runtime</span></div>
+</section>
 
-    <section class="section" id="status">
-      <div class="status-title">
-        <div>
-          <p class="section-number">03 / Current status</p>
-          <h2>Phase 0: establish reality.</h2>
-        </div>
-        <span class="status-badge">In progress</span>
-      </div>
+<section class="section archive" id="archive">
+<div class="section-title"><p class="eyebrow">04 / ARCHIVE & INSPIRATION</p><h2>The project is technical. The reason for it is musical.</h2></div>
+<div class="archive-grid">
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Virginia-stringband-1937.jpg" alt="Bog Trotters Band with fiddles, guitar, banjo and autoharp, 1937" loading="lazy">
+<figcaption><b>Bog Trotters Band</b><span>Galax, Virginia · 1937</span><a href="https://www.loc.gov/item/2007660137/" target="_blank" rel="noreferrer">Source & rights ↗</a></figcaption>
+</figure>
+<figure>
+<img src="https://tile.loc.gov/storage-services/service/pnp/ppmsc/00600/00650v.jpg" alt="Pete Steele and family with musical instruments, 1938" loading="lazy">
+<figcaption><b>Pete Steele and family</b><span>Hamilton, Ohio · 1938</span><a href="https://www.loc.gov/item/2007660375/" target="_blank" rel="noreferrer">Source & rights ↗</a></figcaption>
+</figure>
+<figure>
+<img src="https://tile.loc.gov/image-services/iiif/service%3Amusic%3Amusgottlieb%3Amusgottlieb-07501%3Aver01%3A0001/full/pct%3A50.0/0/default.jpg" alt="Mid-century jazz musicians from the William P. Gottlieb Collection" loading="lazy">
+<figcaption><b>Mid-century jazz performance</b><span>William P. Gottlieb Collection</span><a href="https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/" target="_blank" rel="noreferrer">Collection & rights ↗</a></figcaption>
+</figure>
+</div>
+<p class="archive-note">The Lomax collection records used here are marked “No known restrictions” by the Library of Congress. The William P. Gottlieb photographs entered the public domain in 2010; the Library notes that privacy/publicity rights can still apply. Credits and source links are kept with the images rather than treating archival photography as decoration without provenance.</p>
+</section>
 
-      <p class="subhead status-copy">
-        The immediate target is a controlled microphone baseline on acoustic guitar.
-        The first real recording pipeline is being validated before any claim about
-        transcription quality is published.
-      </p>
+<section class="about">
+<div><p class="eyebrow">ABOUT</p><h2>Independent research, openly documented.</h2></div>
+<div>
+<p>Acoustic Ear is a self-directed undergraduate research project by a student at Calhoun Community College. It is not presented as an official Calhoun research program or institutionally sponsored project.</p>
+<p>AI tools assist with code implementation, literature review, debugging, and experimental infrastructure. The research question, experimental direction, recordings, interpretation, and decisions are human-directed.</p>
+</div>
+</section>
+</main>
 
-      <div class="hardware-grid">
-        <article><small>Reference instrument</small><strong>Martin D-18</strong><span>Steel-string acoustic guitar</span></article>
-        <article><small>Microphone</small><strong>Samson Meteor</strong><span>Consumer USB microphone</span></article>
-        <article><small>Baseline model</small><strong>Basic Pitch</strong><span>Frozen pretrained comparison</span></article>
-        <article><small>Local compute</small><strong>RTX 4070 Ti</strong><span>12 GB GPU + Ryzen 7 5800X3D</span></article>
-      </div>
-
-      <div class="status-note">
-        <div class="status-dot" aria-hidden="true"></div>
-        <div>
-          <strong>Why is there no headline accuracy number yet?</strong>
-          <p>
-            The first real baseline is still being validated. Runtime/backend behavior
-            was identified as an experimental issue before a trustworthy transcription
-            report was produced. Results will appear here only after predictions can be
-            scored against known ground truth.
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <div class="done"><span></span><b>Research scaffold</b><small>Reproducible experiments, tests, and evaluation plumbing</small></div>
-        <div class="done"><span></span><b>Dataset foundation</b><small>Provenance, licensing lanes, import and integrity checks</small></div>
-        <div class="active"><span></span><b>Real microphone baseline</b><small>D-18 + Meteor inference and scoring</small></div>
-        <div><span></span><b>Model comparison</b><small>Evaluate guitar-specialized checkpoints and architectures</small></div>
-        <div><span></span><b>Controlled adaptation</b><small>Train only after the baseline and smoke tests are preserved</small></div>
-      </div>
-    </section>
-
-    <section class="section split principles" id="principles">
-      <div class="section-heading">
-        <p class="section-number">04 / Research principles</p>
-        <h2>Make it reproducible.<br><span>Keep it honest.</span></h2>
-      </div>
-      <div class="principle-list">
-        <article><span>01</span><div><h3>Preserve baselines</h3><p>Never erase the reference point that tells us whether a change actually helped.</p></div></article>
-        <article><span>02</span><div><h3>Track data lineage</h3><p>Record where training material came from, how it was transformed, and which restrictions follow it.</p></div></article>
-        <article><span>03</span><div><h3>Separate research from product claims</h3><p>Research-only datasets and checkpoints remain clearly isolated from commercially compatible work.</p></div></article>
-        <article><span>04</span><div><h3>Prefer held-out reality</h3><p>Synthetic data can teach and stress-test a model, but it cannot substitute for unseen real recordings.</p></div></article>
-        <article><span>05</span><div><h3>Report failures</h3><p>Bad runtime, false notes, broken environments, and failed experiments are evidence too.</p></div></article>
-      </div>
-    </section>
-
-    <section class="future">
-      <p class="section-number">05 / Long-term direction</p>
-      <h2>From hearing notes<br>to understanding musicians.</h2>
-      <p>
-        If microphone-first transcription can become accurate and fast enough,
-        the same foundation could support interactive music learning, automatic
-        transcription, practice feedback, performance analysis, and discovery
-        tools across guitar, bass, piano, drums, voice, banjo, mandolin, and more.
-      </p>
-      <div class="instrument-row" aria-label="Potential future instruments">
-        <span>Guitar</span><span>Bass</span><span>Keys</span><span>Drums</span><span>Voice</span><span>Banjo</span><span>Mandolin</span><span>+</span>
-      </div>
-    </section>
-
-    <section class="about">
-      <div>
-        <p class="section-number">About the project</p>
-        <h2>Independent, early, and intentionally transparent.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          Acoustic Ear is a self-directed undergraduate research project by a
-          student at Calhoun Community College. The project is independently
-          conducted and is not presented as an official college research program.
-        </p>
-        <p>
-          AI coding and research tools assist with implementation, literature review,
-          debugging, and experimental infrastructure. Research questions, experimental
-          direction, recordings, interpretation, and decisions remain human-directed.
-        </p>
-        <p>
-          The development repository is private while the experimental foundation is
-          still changing rapidly. This public page documents the research question,
-          method, progress, and eventually the measured results.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div><strong>Acoustic Ear</strong><span>Microphone-Based Music Transcription Research</span></div>
-    <p>Early-stage independent research · Alabama · 2026</p>
-    <a href="https://github.com/LonesomeHex" target="_blank" rel="noreferrer">github.com/LonesomeHex ↗</a>
-  </footer>
+<footer>
+<div class="footer-brand"><strong>Acoustic Ear</strong><span>Listen first. Measure second.</span></div>
+<div class="footer-links"><a href="https://github.com/LonesomeHex" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#archive">Photo credits</a></div>
+<small>Independent research · 2026</small>
+</footer>
 </body>
 </html>
