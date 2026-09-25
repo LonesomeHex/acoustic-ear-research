@@ -15,8 +15,8 @@
 <span><strong>Acoustic Ear</strong><small>music transcription research</small></span>
 </a>
 <nav aria-label="Primary navigation">
-<a href="#why">Why</a><a href="#setup">Setup</a><a href="#method">Method</a><a href="#status">Status</a><a href="#archive">Archive</a>
-<a class="github" href="https://github.com/LonesomeHex" target="_blank" rel="noreferrer">GitHub ↗</a>
+<a href="#why">Why</a><a href="#setup">Setup</a><a href="#method">Method</a><a href="#evidence">Evidence</a><a href="#status">Status</a><a href="#archive">Archive</a>
+<a class="github" href="https://github.com/LonesomeHex/acoustic-ear-research" target="_blank" rel="noreferrer">GitHub ↗</a>
 </nav>
 </header>
 
@@ -61,12 +61,12 @@
 <article>
 <div class="spec-top"><span>03</span><i class="icon" aria-hidden="true">≋</i></div>
 <small>Baseline model</small><h2>Basic Pitch</h2><p>Frozen pretrained comparison</p>
-<dl><div><dt>Purpose</dt><dd>Reference transcription</dd></div><div><dt>Status</dt><dd>Runtime investigation</dd></div></dl>
+<dl><div><dt>Purpose</dt><dd>Reference transcription</dd></div><div><dt>Status</dt><dd>Frozen &amp; scored</dd></div></dl>
 </article>
 <article>
 <div class="spec-top"><span>04</span><i class="icon" aria-hidden="true">▦</i></div>
 <small>Local compute</small><h2>RTX 4070 Ti</h2><p>12 GB GPU + Ryzen 7 5800X3D</p>
-<dl><div><dt>Training</dt><dd>Local CUDA planned</dd></div><div><dt>Priority</dt><dd>Reproducible runs</dd></div></dl>
+<dl><div><dt>Inference</dt><dd>CUDA path verified</dd></div><div><dt>Priority</dt><dd>Reproducible runs</dd></div></dl>
 </article>
 </div>
 </section>
@@ -121,20 +121,53 @@
 </div>
 </section>
 
+
+<section class="section evidence" id="evidence">
+<div class="section-title"><p class="eyebrow">03 / MEASURED EVIDENCE</p><h2>The baseline is allowed to look bad.</h2></div>
+<p class="evidence-intro">The project now has scored real-microphone experiments. These results are intentionally shown before any model adaptation so later improvements have a fixed reference. Scores below are conditional on intended pitch labels: attack onsets were human-reviewed, but the performed pitches were not independently verified.</p>
+<div class="evidence-grid">
+<article>
+<span class="eyebrow">EXPERIMENT 001</span><h3>First real-mic baseline</h3>
+<div class="result-big">F1 0.1875</div>
+<p>Six reviewed reference attacks, 26 model predictions, 3 exact-pitch/onset matches, 3 misses, and 23 unmatched predictions.</p>
+</article>
+<article>
+<span class="eyebrow">EXPERIMENT 002</span><h3>Five-take repeatability</h3>
+<div class="result-big">31 / 31</div>
+<p>All reviewed reference attacks matched across five complete takes, but 86 of 117 predictions remained unmatched. Combined F1: 0.419.</p>
+</article>
+<article>
+<span class="eyebrow">FAILURE CHARACTERIZATION</span><h3>A repeatable low-note mismatch</h3>
+<div class="result-big">37 × G♯1</div>
+<p>MIDI 32 appeared unmatched 37 times across all five takes; 24 events occurred completely before the first reviewed guitar attack. The cause is unresolved.</p>
+</article>
+<article>
+<span class="eyebrow">WORKFLOW VALIDATION</span><h3>WAV → transcription artifacts</h3>
+<div class="result-big">22 events</div>
+<p>A real 25-second WAV completed the normal transcription path and produced JSON, CSV and MIDI. Its note events matched the archived CUDA result for that take.</p>
+</article>
+</div>
+<div class="evidence-note">
+<div><b>What this does establish</b><p>A reproducible scorer, preserved baselines, repeatable real-microphone mismatches, and a working single-WAV transcription path.</p></div>
+<div><b>What it does not establish</b><p>General guitar accuracy, natural-music performance, the cause of the extra predictions, or that one model is better than another.</p></div>
+<a class="btn secondary" href="https://github.com/LonesomeHex/acoustic-ear-research/blob/main/RESULTS.md" target="_blank" rel="noreferrer">Read the public results notes ↗</a>
+</div>
+</section>
+
 <section class="section status" id="status">
-<div class="section-title"><p class="eyebrow">03 / CURRENT STATUS</p><h2>No victory lap before the first clean measurement.</h2></div>
+<div class="section-title"><p class="eyebrow">04 / CURRENT STATUS</p><h2>Characterize the failure before trying to fix it.</h2></div>
 <div class="status-layout">
 <div class="status-list">
-<div class="complete"><span></span><b>Phase 0 research scaffold</b><small>Complete</small></div>
-<div class="complete"><span></span><b>Dataset provenance & import foundation</b><small>Complete</small></div>
-<div class="complete"><span></span><b>First real D-18 / Meteor recording</b><small>Captured</small></div>
-<div class="active"><span></span><b>Baseline inference runtime</b><small>Investigating</small></div>
-<div class="queued"><span></span><b>GPU-backed comparison run</b><small>Awaiting validation</small></div>
-<div class="queued"><span></span><b>Model adaptation / training</b><small>Not started</small></div>
+<div class="complete"><span></span><b>Phase 0 research scaffold & provenance controls</b><small>Complete</small></div>
+<div class="complete"><span></span><b>Experiment 001 — frozen real-mic baseline</b><small>Scored</small></div>
+<div class="complete"><span></span><b>Experiment 002 — five-take repeatability</b><small>Scored</small></div>
+<div class="complete"><span></span><b>Single-WAV → JSON / CSV / MIDI workflow</b><small>Validated</small></div>
+<div class="active"><span></span><b>Experiment 005 — controlled failure isolation</b><small>Ready to record</small></div>
+<div class="queued"><span></span><b>Model comparison / adaptation / training</b><small>Not started</small></div>
 </div>
 <div class="evidence-card">
-<span class="eyebrow">CURRENT RULE</span><h3>Incomplete runs are not results.</h3>
-<p>The first stock Basic Pitch attempt was stopped after an abnormally long CPU-only inference run. The recording was preserved unchanged and no transcription accuracy claim was made. The next step is to validate the execution backend and produce a scoreable report.</p>
+<span class="eyebrow">CURRENT QUESTION</span><h3>Why does G♯1 appear before the guitar is played?</h3>
+<p>Across five repeatability takes, 24 of 37 unmatched G♯1 predictions occurred entirely before the first reviewed guitar attack. The next controlled recordings separate room sound, instrument handling, damped strings, free-string resonance, and isolated notes before any threshold or model change is considered.</p>
 </div>
 </div>
 </section>
@@ -145,7 +178,7 @@
 </section>
 
 <section class="section archive" id="archive">
-<div class="section-title"><p class="eyebrow">04 / ARCHIVE & INSPIRATION</p><h2>The project is technical. The reason for it is musical.</h2></div>
+<div class="section-title"><p class="eyebrow">05 / ARCHIVE & INSPIRATION</p><h2>The project is technical. The reason for it is musical.</h2></div>
 <div class="archive-grid">
 <figure>
 <img src="https://tile.loc.gov/storage-services/service/pnp/ppmsc/00300/00362v.jpg" alt="Bill Tatnall with guitar, Frederica, Georgia, 1935" loading="lazy">
@@ -174,7 +207,7 @@
 
 <footer>
 <div class="footer-brand"><strong>Acoustic Ear</strong><span>Listen first. Measure second.</span></div>
-<div class="footer-links"><a href="https://github.com/LonesomeHex" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#archive">Photo credits</a></div>
+<div class="footer-links"><a href="https://github.com/LonesomeHex/acoustic-ear-research" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/LonesomeHex/acoustic-ear-research/blob/main/RESULTS.md" target="_blank" rel="noreferrer">Results ↗</a><a href="#archive">Photo credits</a></div>
 <small>Independent research · 2026</small>
 </footer>
 </body>
