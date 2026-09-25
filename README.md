@@ -21,7 +21,9 @@ The archival photographs are **not** presented as training data, benchmark mater
 
 ## Research status
 
-**Early-stage / Phase 0.** Current work is focused on establishing a trustworthy real-microphone baseline before any model-improvement claims are made.
+**Early-stage / controlled characterization.** The first real-microphone baseline and a five-take repeatability experiment have been scored. Current work is focused on isolating repeatable false/unmatched predictions before any model-improvement claims are made.
+
+Current public evidence includes a frozen real-microphone baseline, a five-take repeatability study, unmatched-prediction characterization, and a validated single-WAV transcription workflow. See [RESULTS.md](RESULTS.md).
 
 The public site intentionally distinguishes:
 
