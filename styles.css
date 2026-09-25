@@ -141,6 +141,17 @@ dd{margin:0;color:#aaa093;text-align:right}
 .signal-flow em{font-style:normal;color:#695343}
 .signal-line{height:68px;display:flex;align-items:center;gap:5px;border-top:1px solid #2c241d;padding-top:12px}
 .signal-line i{flex:1;max-width:6px;height:var(--h);background:linear-gradient(180deg,var(--orange2),var(--orange3));opacity:.7;border-radius:3px}
+
+.evidence-intro{font-size:16px;color:#a89d8f;max-width:900px;margin:34px 0 44px}
+.evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.evidence-grid article{padding:28px;min-height:250px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,#17130f,#12100e)}
+.evidence-grid h3{font-size:19px;margin:19px 0 11px}
+.evidence-grid p{font-size:13px;color:#8f8579;max-width:520px}
+.result-big{font-size:38px;line-height:1;letter-spacing:-.04em;color:#e6ddd1;font-weight:760;margin:24px 0 15px}
+.evidence-note{display:grid;grid-template-columns:1fr 1fr auto;gap:28px;align-items:center;padding:24px 26px;border:1px solid var(--line);border-top:0;background:#12100e}
+.evidence-note b{font-size:12px}
+.evidence-note p{font-size:11px;color:#81786d;margin:5px 0 0;max-width:430px}
+
 .status-layout{display:grid;grid-template-columns:1fr .75fr;gap:50px;margin-top:55px}
 .status-list{border-top:1px solid var(--line)}
 .status-list>div{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:16px 3px;border-bottom:1px solid var(--line)}
@@ -174,6 +185,8 @@ footer{max-width:var(--max);margin:auto;padding:32px 24px 55px;border-top:1px so
 .footer-links{display:flex;gap:18px}
 .footer-links a:hover{color:var(--orange2)}
 @media(max-width:900px){
+  .evidence-note{grid-template-columns:1fr}
+
   nav a:not(.github){display:none}
   .hero{grid-template-columns:1fr;min-height:auto;padding-top:60px}
   .heritage-panel{min-height:500px}
@@ -185,6 +198,8 @@ footer{max-width:var(--max);margin:auto;padding:32px 24px 55px;border-top:1px so
   .signal-flow em{display:none}
 }
 @media(max-width:620px){
+  .evidence-grid{grid-template-columns:1fr}
+
   .topbar,.hero,.section,.spec-wrap,.signal-section,.about{padding-left:18px;padding-right:18px}
   .topbar{height:68px}
   h1{font-size:54px}
